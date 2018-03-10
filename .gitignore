@@ -103,3 +103,16 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+
+### Vim ###
+# swap
+.sw[a-p]
+.*.sw[a-p]
+# session
+Session.vim
+# temporary
+.netrwhist
+*~
+# auto-generated tag files
+tags
