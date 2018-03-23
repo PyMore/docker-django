@@ -8,6 +8,7 @@ RUN apt-get update \
         build-essential \
         libssl-dev \
         libffi-dev \
+        supervisor \
         python3-dev \
         python3-venv\
     && rm -rf /var/lib/apt/lists/*
