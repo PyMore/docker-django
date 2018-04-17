@@ -3,16 +3,30 @@ version: '3'
 services:
   db:
     image: postgres
-   environment:
+    container_name: 
+    environment:
       POSTGRES_PASSWORD: dockeando
       POSTGRES_USER: dockeando
       POSTGRES_DB: dockeando    
+
+  nginx:
+    image: nginx:latest
+    container_name: ng01
+    ports:
+      - "80:80"
+    volumes:
+      - .:/dockeando
+      - ./config/nginx:/etc/nginx/conf.d
+    depends_on:
+      - web
+
   web:
     build: .
-    command: python3 manage.py runserver 0.0.0.0:1010
+    container_name: web01
+    command: bash -c "python3 manage.py makemigrations && python3 manage.py migrate && gunicorn dockeando.wsgi -b 0.0.0.0:8000"
     volumes:
       - .:/dockeando
     ports:
-      - "1010:1010"
+      - "8000:8000"
     depends_on:
       - db
