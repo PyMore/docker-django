@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 django==1.11
 gunicorn
+=======
+django==2.0.4
+gunicorn
+psycopg2
+>>>>>>> master

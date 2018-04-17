@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 FROM ubuntu:16.04
 
 RUN apt-get update \
@@ -39,3 +40,15 @@ EXPOSE 80
 #EXPOSE 8000
 #CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 
+=======
+FROM python:3
+
+RUN  apt-get install git
+
+ENV PYTHONUNBUFFERED 1
+RUN mkdir /dockeando
+WORKDIR /dockeando
+ADD requirements.txt /dockeando/
+RUN pip install -r requirements.txt
+ADD . /dockeando/
+>>>>>>> master
