@@ -3,10 +3,11 @@ version: '3'
 services:
   db:
     image: postgres
-   environment:
+    environment:
       POSTGRES_PASSWORD: dockeando
       POSTGRES_USER: dockeando
       POSTGRES_DB: dockeando    
+
   web:
     build: .
     command: python3 manage.py runserver 0.0.0.0:1010
